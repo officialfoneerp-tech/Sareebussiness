@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zarigai Sarees</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Kanchipuram pattu, Banarasi, soft silks and everyday cottons. Demo storefront.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;600;700&family=Rozha+One&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="demo-ribbon"><div class="wrap">Demo store. Sarees, prices and offers here are samples, and nothing is on sale yet.</div></div>
+
+<div class="marquee" aria-label="Store offers">
+  <div class="marquee-track" id="marquee">
+    <span>Free shipping across India above ₹2,999</span>
+    <span>Free fall and pico on every silk saree</span>
+    <span>Cash on delivery available</span>
+    <span>7 day easy returns</span>
+    <span>Order on WhatsApp in two taps</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Zarigai</b><span lang="ta">ஜரிகை</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#occasions">Occasions</a>
+      <a href="#collection">Collection</a>
+      <a href="#craft">The craft</a>
+      <a href="#promise">Our promise</a>
+    </nav>
+    <button class="icon-btn" id="wishBtn" aria-label="Show wishlist">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.6A4 4 0 0 1 12 8a4 4 0 0 1 7 2.4C19 15.600 12 20 12 20z"/></svg>
+      <span class="count" id="wishCount" hidden>0</span>
+    </button>
+    <button class="icon-btn" id="cartBtn" aria-label="Open bag">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="count" id="cartCount" hidden>0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="silk" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Pattu · Silk · Cotton</p>
+        <h1>Six yards, <em>woven slow.</em></h1>
+        <p class="hero-lede">Kanchipuram pattu for the muhurtham, soft silks for the function, and cottons you will reach for every morning. Each saree is picked loom by loom.</p>
+        <div class="hero-cta">
+          <a class="btn gold" href="#collection">Shop the collection</a>
+          <a class="btn on-deep" href="#occasions">Find by occasion</a>
+        </div>
+        <ul class="hero-facts">
+          <li>Free fall and pico</li>
+          <li>Cash on delivery</li>
+          <li>7 day returns</li>
+        </ul>
+      </div>
+      <div class="fan" id="fan" aria-label="Featured sarees"></div>
+    </div>
+    <div class="zari-edge"></div>
+  </section>
+
+  <section class="section" id="occasions">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Start here</p>
+        <h2>Where are you wearing it?</h2>
+        <p>Pick the occasion and we will show only the sarees that suit it.</p>
+      </div>
+      <div class="occasions" id="occGrid"></div>
+    </div>
+  </section>
+
+  <section class="section band" id="collection">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The collection</p>
+        <h2>Every saree in the house</h2>
+      </div>
+      <div class="filters">
+        <div class="filter-row" id="groupChips" role="group" aria-label="Filter by weave"><span class="label">Weave</span></div>
+        <div class="filter-row" id="colourChips" role="group" aria-label="Filter by colour"><span class="label">Colour</span></div>
+        <div class="tools">
+          <div class="search">
+            <input type="search" id="q" placeholder="Search Kanchipuram, mango, blue…" aria-label="Search sarees">
+          </div>
+          <select class="select" id="sort" aria-label="Sort sarees">
+            <option value="featured">Featured first</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+            <option value="save">Biggest saving</option>
+          </select>
+          <button class="chip" id="wishOnly" aria-pressed="false">Wishlist only</button>
+        </div>
+        <p class="result-note" id="resultNote" aria-live="polite"></p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="craft">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The craft</p>
+        <h2>Read a saree like a weaver</h2>
+        <p>Every saree has three parts. Tap each one to see where it sits and what to look for when you buy.</p>
+      </div>
+      <div class="anatomy">
+        <div class="anatomy-art" id="anatomyArt"></div>
+        <div class="parts" id="parts">
+          <button class="part" data-zone="pallu" aria-pressed="true">
+            <span class="ta" lang="ta">முந்தானை · Mundhanai</span>
+            <span class="en">The pallu</span>
+            <span class="d">The showpiece end that falls over your shoulder. The richest zari work goes here, so check it first.</span>
+          </button>
+          <button class="part" data-zone="body" aria-pressed="false">
+            <span class="ta" lang="ta">உடல் · Udal</span>
+            <span class="en">The body</span>
+            <span class="d">The long field that wraps and pleats. Butta, mango, kattam checks or vaira oosi stripes are woven in, not printed.</span>
+          </button>
+          <button class="part" data-zone="border" aria-pressed="false">
+            <span class="ta" lang="ta">கரை · Karai</span>
+            <span class="en">The border</span>
+            <span class="d">In a korvai saree the border is woven separately and interlocked with the body. The temple points are the sign.</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="promise">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Our promise</p>
+        <h2>Buy it the way you would in the shop</h2>
+      </div>
+      <div class="promises">
+        <div class="promise"><h3>Ready to wear</h3><p>Fall and pico are stitched free on every silk saree before it ships.</p></div>
+        <div class="promise"><h3>Pay at your door</h3><p>Cash on delivery across India. UPI and cards work too.</p></div>
+        <div class="promise"><h3>7 days to decide</h3><p>See the colour in your own light. If it is not right, send it back.</p></div>
+        <div class="promise"><h3>Ask before you buy</h3><p>Message us on WhatsApp for a video of the actual saree.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="club" id="club">
+    <div class="zari-edge flip"></div>
+    <div class="wrap">
+      <div>
+        <h2>New looms, first look</h2>
+        <p>Join the WhatsApp list and see fresh arrivals a day before the website does. Wedding pieces often sell as single sarees.</p>
+      </div>
+      <form id="clubForm" novalidate>
+        <input type="tel" id="clubPhone" inputmode="numeric" autocomplete="tel" placeholder="WhatsApp number" aria-label="WhatsApp number">
+        <button class="btn gold" type="submit">Join the list</button>
+        <p class="fine" id="clubNote">Demo form. Your number is not stored or sent anywhere.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div><b>Zarigai</b><br>Sarees from the loom to your door.</div>
+    <div>Demo storefront, version 0.1<br>Sample inventory of <span id="invCount">24</span> sarees</div>
+  </div>
+</footer>
+
+<dialog class="qv" id="qv" aria-label="Saree details">
+  <button class="icon-btn x" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="qv-in" id="qvIn"></div>
+</dialog>
+
+<dialog class="drawer" id="cart" aria-label="Your bag">
+  <div class="drawer-head">
+    <h2>Your bag</h2>
+    <button class="icon-btn x" data-close aria-label="Close bag"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="ship">
+      <span id="shipMsg"></span>
+      <div class="ship-bar"><i id="shipFill"></i></div>
+    </div>
+  </div>
+  <div class="lines" id="lines"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/inventory.js"></script>
+<script src="assets/js/saree-art.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
